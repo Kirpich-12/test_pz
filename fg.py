@@ -14,10 +14,11 @@ class TestUrv(unittest.TestCase):
     def test_neg_root(self):
         self.assertEqual(urv(1, -2), 'Компл область')
     def test_er_inp(self):
-        self.assertEqual(urv('dsadas', '0'), 'А нормально ввести можго было')
-        self.assertEqual(urv("", 0), 'А нормально ввести можго было')
-        self.assertEqual(urv("10**-9", 'd'), 'А нормально ввести можго было')
+        self.assertEqual(urv('dsadas', '0'), 'А нормально ввести можно было')
+        self.assertEqual(urv("", 0), 'А нормально ввести можно было')
+        self.assertEqual(urv("10**-9", 'd'), 'А нормально ввести можно было')
 
 if __name__ == '__main__':
     unittest.main()
+
 
