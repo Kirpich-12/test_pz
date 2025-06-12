@@ -1,34 +1,24 @@
-def sqrt(a,b):
-    try:
-        a = float(a)
-        b = float(b)
-        if (a + b) < 0:
-            return ('Компл область')
-        else:
-            n = (((a+b)**3)/((a-b)**2)) ** (1/2)
-    except ZeroDivisionError:
-        return 'Не дели блет на 0'
-    except (TypeError, ValueError):
-        return ('А нормально ввести можно было')
-    else:
-        return round(n, 4)
+import unittest
+from code_1 import sqrt as urv
 
-
-def main():
-    try:
-        usr_a = float(input())
-        usr_b = float(input())
-    except (TypeError, ValueError):
-        print ('А нормально ввести можго было')
-    else:
-        print(sqrt(usr_a,usr_b))
-
+class TestUrv(unittest.TestCase):
+    #Все имена должны наз-ся с test_
+    def test_int_pos_num(self):
+        self.assertEqual(urv(2, 1), 5.1962)
+    def test_int_neg_num(self):
+        self.assertEqual(urv(2, -1), 0.3333)
+    def test_z_d(self):
+        self.assertEqual(urv(2, 2), 'Не дели блет на 0')
+    def test_pos_float_num(self):
+        self.assertEqual(urv(0.2, 0.1), 1.6432)
+    def test_neg_root(self):
+        self.assertEqual(urv(1, -2), 'Компл область')
+    def test_er_inp(self):
+        self.assertEqual(urv('dsadas', '0'), 'А нормально ввести можно было')
+        self.assertEqual(urv("", 0), 'А нормально ввести можно было')
+        self.assertEqual(urv("10**-9", 'd'), 'А нормально ввести можно было')
 
 if __name__ == '__main__':
-    main()
-
-
-
-
+    unittest.main()
 
 
