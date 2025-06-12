@@ -7,7 +7,9 @@ def sqrt(a,b):
         else:
             n = (((a+b)**3)/((a-b)**2)) ** (1/2)
     except ZeroDivisionError:
+        raise ZeroDivisionError
         return 'Не дели блет на 0'
+    
     except (TypeError, ValueError):
         return ('А нормально ввести можно было')
     else:
